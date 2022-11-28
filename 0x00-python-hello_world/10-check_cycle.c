@@ -13,10 +13,11 @@ int check_cycle(listint_t *list)
 	listint_t *current;
 
 	current = list;
+	ptr = list;
 
 	while (current != NULL)
 	{
-		if (check(list, f, current) == 1)
+		if (check(ptr, f, current) == 1)
 		{
 			return (1);
 		}
