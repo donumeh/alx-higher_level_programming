@@ -39,7 +39,7 @@ int check(listint_t *ptr, int n, listint_t *now)
 {
 	int i;
 
-	for (i = 0; (i < n) && n; i++)
+	for (i = 0; i < n; i++)
 	{
 		if (ptr == now)
 		{
