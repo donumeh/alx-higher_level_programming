@@ -5,7 +5,7 @@ from sys import argv
 
 def main():
     if arg_num() == 1:
-        return 1
+        exit(1)
     operator = argv[2]
     a = int(argv[1])
     b = int(argv[3])
@@ -19,7 +19,8 @@ def main():
         print("{:d} + {:d} = {:d}".format(a, b, div(a, b)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
-        return 1
+        exit(1)
+    exit(0)
 
 
 def arg_num():
