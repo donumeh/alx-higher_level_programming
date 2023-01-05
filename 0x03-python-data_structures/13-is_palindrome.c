@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stddef.h>
 #include "lists.h"
+#include <stdlib.h>
 
 /**
  * is_palindrome - checks if a linked list is palindrome
@@ -12,8 +13,9 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *h;
 	unsigned int count = 0;
-
+	int *array;
 	h = *head;
+	int i = 0;
 
 	while (h != NULL)
 	{
@@ -21,8 +23,13 @@ int is_palindrome(listint_t **head)
 		h = h->next;
 	}
 	h = *head;
-	int array[count + 1];
-	int i = 0;
+
+	array = malloc(sizeof(int) * count);
+	if (array == NULL)
+	{
+		printf("Malloc Error\n");
+		return (0);
+	}
 
 	while (h != NULL)
 	{
@@ -42,7 +49,5 @@ int is_palindrome(listint_t **head)
 	}
 
 	return (1);
-
-
 
 }
