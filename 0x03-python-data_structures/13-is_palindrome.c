@@ -14,9 +14,9 @@ int is_palindrome(listint_t **head)
 	listint_t *h;
 	unsigned int count = 0;
 	int *array;
-	h = *head;
 	int i = 0;
 
+	h = *head;
 	while (h != NULL)
 	{
 		count++;
