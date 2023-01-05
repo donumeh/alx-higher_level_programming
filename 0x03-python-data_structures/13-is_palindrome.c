@@ -14,7 +14,7 @@ int is_palindrome(listint_t **head)
 	listint_t *h;
 	unsigned int count = 0;
 	int *array;
-	unsigned int i = 0, y = 0, r_value = 1;
+	unsigned int i = 0, r_value = 1;
 
 	h = *head;
 	while (h != NULL)
@@ -23,7 +23,7 @@ int is_palindrome(listint_t **head)
 		h = h->next;
 	}
 	h = *head;
-	
+
 	array = malloc(sizeof(int) * count);
 	if (array == NULL)
 	{
@@ -44,14 +44,15 @@ int is_palindrome(listint_t **head)
 		int n, x; 
 
 		n = h->n;
-		x = array[y];
+		x = array[i - 1];
 
 		if (n != x)
-		{		
+		{	
+			printf("%d %d\n", x, n);
 			r_value = 0;
 			break;
 		}
-		y++;
+		i--;
 		h = h->next;
 	}
 	free(array);
