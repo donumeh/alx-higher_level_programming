@@ -44,7 +44,7 @@ int is_palindrome(listint_t **head)
 		int n, x; 
 
 		n = h->n;
-		x = array[i - 1];
+		x = array[i];
 
 		if (n != x)
 		{	
