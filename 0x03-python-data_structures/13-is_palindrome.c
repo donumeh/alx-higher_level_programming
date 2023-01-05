@@ -39,7 +39,7 @@ int is_palindrome(listint_t **head)
 	}
 
 	h = *head;
-	while (h != NULL)
+	while (h != NULL && i >= 0)
 	{
 		int n, x; 
 
