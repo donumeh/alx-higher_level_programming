@@ -39,16 +39,15 @@ int is_palindrome(listint_t **head)
 	}
 
 	h = *head;
-	while (h != NULL && i >= 0)
+	while (h != NULL)
 	{
 		int n, x; 
 
 		n = h->n;
-		x = array[i];
+		x = array[i - 1];
 
 		if (n != x)
 		{	
-			printf("%d %d\n", x, n);
 			r_value = 0;
 			break;
 		}
