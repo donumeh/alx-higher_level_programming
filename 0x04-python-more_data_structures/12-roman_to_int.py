@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    roman_numeral = {
+    if roman_string is None:
+        return 0
+    elif type(roman_string) != str:
+        return 0
+    stri = roman_string
+    r = {
             'I': 1,
             'V': 5,
             'X': 10,
@@ -11,8 +16,8 @@ def roman_to_int(roman_string):
             }
     result = 0
     for i in range(len(roman_string)):
-        if i > 0 and roman_numeral[roman_string[i]] > roman_numeral[roman_string[i - 1]]:
-            result += roman_numeral[roman_string[i]] - 2 * roman_numeral[roman_string[i - 1]]
+        if i > 0 and r[stri[i]] > r[stri[i - 1]]:
+            result += r[stri[i]] - 2 * r[stri[i - 1]]
         else:
-            result += roman_numeral[roman_string[i]]
+            result += r[stri[i]]
     return result
