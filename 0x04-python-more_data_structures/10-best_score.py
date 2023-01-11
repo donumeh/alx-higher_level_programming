@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 def best_score(a_dictionary):
-    Name = "None"
+    name = "None"
     if a_dictionary is None:
         return Name
     num = -10000000000000
