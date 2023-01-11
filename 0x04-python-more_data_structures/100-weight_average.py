@@ -4,6 +4,8 @@
 def weight_average(my_list=[]):
     if my_list is None:
         return 0
+    elif my_list == []:
+        return 0
     new_list = list(map(lambda x: x[0] * x[1], my_list))
     sumi = 0
     sum_av = 0
