@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-
 def check_roman(x):
     if x == "I":
         return 1
