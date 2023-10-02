@@ -1,2 +1,25 @@
 #!/bin/bash
-python3.10 -m py_compile "$PYFILE"
+
+if [ -z "$PYFILE" ]; then
+    echo "PYFILE environment variable is not set."
+    exit 1
+fi
+
+if [ ! -f "$PYFILE" ]; then
+    echo "$PYFILE does not exist."
+    exit 1
+fi
+
+output_file="${PYFILE}c"
+
+echo "Compiling $PYFILE ..."
+python3 -m py_compile "$PYFILE"
+
+if [ -f "__pycache__/$output_file" ]; then
+    mv "__pycache__/$output_file" .
+    rm -rf "__pycache__"
+    echo "Compilation successful. Output file: $output_file"
+else
+    echo "Compilation failed."
+fi
+
