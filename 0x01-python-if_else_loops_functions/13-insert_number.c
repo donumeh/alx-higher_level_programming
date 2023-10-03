@@ -110,14 +110,16 @@ int count_node(listint_t *head)
 
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *new, *current, *node_mid;
-	int num_of_nodes = 0, div_node;
+	listint_t *new = NULL, *current = NULL;
+	listint_t *node_mid = NULL;
+	int num_of_nodes = 0, div_node = 0;
 
 	current = *head;
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
 		return (NULL);
-	new->n = number, new->next = NULL;
+	new->n = number;
+	new->next = NULL;
 
 	if (*head == NULL)
 	{
