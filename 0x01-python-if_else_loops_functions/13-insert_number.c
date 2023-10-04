@@ -2,7 +2,7 @@
 
 int count_node(listint_t *);
 listint_t *node_at_center(listint_t *, int);
-void fix_node(listint_t *, listint_t *, int, int, listint_t *);
+listint_t *fix_node(listint_t *, listint_t *, int, int, listint_t *);
 
 /**
  * fix_node - fix in the node to the pos
@@ -12,10 +12,10 @@ void fix_node(listint_t *, listint_t *, int, int, listint_t *);
  * @call: yes or no validation
  * @new: the new node to insert
  *
- * Return: void
+ * Return: listint_t node to the head of the linked list
  */
 
-void fix_node(listint_t *node_mid, listint_t *head, int mid_pos,
+listint_t *fix_node(listint_t *node_mid, listint_t *head, int mid_pos,
 		int call, listint_t *new)
 {
 	listint_t *prev;
@@ -29,8 +29,11 @@ void fix_node(listint_t *node_mid, listint_t *head, int mid_pos,
 			if (head->n > new->n)
 			{
 				new->next = head;
-				prev->next = new;
-				return;
+				if (i == 0)
+					head = new;
+				else
+					prev->next = new;
+				return (head);
 			}
 			prev = head;
 			head = head->next;
@@ -45,13 +48,14 @@ void fix_node(listint_t *node_mid, listint_t *head, int mid_pos,
 			{
 				new->next = node_mid;
 				prev->next = new;
-				return;
+				return (head);
 			}
 			prev = node_mid;
 			node_mid = node_mid->next;
 		}
 		node_mid->next = new;
 	}
+	return (head);
 }
 
 
@@ -77,8 +81,6 @@ listint_t *node_at_center(listint_t *head, int mid_node)
 }
 
 
-
-
 /**
  * count_node - counts the number of node in a linked list
  * @head: the head of the node
@@ -97,7 +99,6 @@ int count_node(listint_t *head)
 	}
 	return (i);
 }
-
 
 
 /**
@@ -133,12 +134,12 @@ listint_t *insert_node(listint_t **head, int number)
 
 	if (node_mid->n > new->n)
 	{
-		fix_node(node_mid, current, div_node, 0, new);
+		*head = fix_node(node_mid, current, div_node, 0, new);
 		/* check the node_mid to the end of node */
 	}
 	else
 	{
-		fix_node(node_mid, current, div_node, 1, new);
+		*head = fix_node(node_mid, current, div_node, 1, new);
 		/* check the pos 0 to the node_mid */
 	}
 
