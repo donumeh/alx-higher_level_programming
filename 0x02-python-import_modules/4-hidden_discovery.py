@@ -1,6 +1,7 @@
-#!/usr/bin/python3.8.5
+#!/usr/bin/python3
 
 import hidden_4
+
 
 def main():
     fns = dir(hidden_4)
@@ -11,6 +12,6 @@ def main():
         else:
             print("{}".format(i))
 
+
 if __name__ == "__main__":
     main()
-
