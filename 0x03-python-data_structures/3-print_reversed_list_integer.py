@@ -2,9 +2,9 @@
 
 
 def print_reversed_list_integer(my_list=[]):
-    my_list.reverse()
-    for i in range(len(my_list)):
-        print("{:d}".format(my_list[i]))
+    new_list = sorted(my_list, reverse=True)
+    for i in range(len(new_list)):
+        print("{:d}".format(new_list[i]))
 
 
 if __name__ == "__main__":
