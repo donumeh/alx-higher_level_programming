@@ -1,88 +1,130 @@
+#include <stdio.h>
 #include "lists.h"
 
-listint_t *init_new_list(listint_t **);
-listint_t *reverse_linked_list(listint_t **head);
+int count_node(listint_t **);
+void reverse_linked_list(listint_t **);
+
+
+/**
+ * compare_linked_list - compares a linked list
+ * @head1: the first head to test
+ * @head2: the second head to test
+ *
+ * Return: 0 if not same, 1 if same
+ */
+
+int compare_linked_list(listint_t **head1, listint_t **head2)
+{
+	listint_t *tmp1, *tmp2;
+
+	tmp1 = *head1;
+	tmp2 = *head2;
+	while (tmp1 && tmp2)
+	{
+		if (tmp1->n != tmp2->n)
+		{
+			return (0);
+		}
+
+		tmp1 = tmp1->next;
+		tmp2 = tmp2->next;
+	}
+
+	return (1);
+}
+
+
 
 /**
  * reverse_linked_list - reverses a linked list
- * @head: the head of a linked list
+ * @head: the head to the lists to reverse
  *
- * Return: the reversed linked list
+ * Return: void
  */
 
-listint_t *reverse_linked_list(listint_t **head)
+void reverse_linked_list(listint_t **head)
 {
-	listint_t *prev, *next;
-
-	if (head == NULL || *head == NULL)
-		return (NULL);
+	listint_t *current, *prev, *next;
 
 	prev = next = NULL;
 
-	while ((*head)->next != NULL)
-	{
-		next = (*head)->next;
-		(*head)->next = prev;
-		prev = *head;
-		*head = next;
-	}
+	current = *head;
 
-	(*head)->next = prev;
-	return (*head);
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	*head = prev;
 }
 
 
 
+
+
 /**
- * init_new_list - initializes the old list into a new list
- * @head: the head
+ * count_node - counts the number of node in a linked list
+ * @head: the head of a node to count
  *
- * Return: the init linked list
+ * Return: number of nodes in a linked list
  */
 
-listint_t *init_new_list(listint_t **head)
+int count_node(listint_t **head)
 {
-	listint_t *tmp = *head, *new_head = NULL;
+	int i = 0;
+	listint_t *tmp = *head;
 
 	while (tmp != NULL)
 	{
-		add_nodeint_end(&new_head, tmp->n);
+		i++;
 		tmp = tmp->next;
 	}
 
-	return (reverse_linked_list(&new_head));
+	return (i);
 }
 
 
 /**
- * is_palindrome - checks if a linked list is a palindrome
- * @head: the head of the linked list
+ * is_palindrome - checks if a sequence of node is a palindrome
+ * @head: the head of a linked list
  *
  * Return: 0 if not a palindrome, 1 if otherwise
  */
 
+
 int is_palindrome(listint_t **head)
 {
-	listint_t *new_head, *tmp, *tmp1;
+	int nodes, mid_node, i, is_palin_check;
+	listint_t *tmp, *second_part, *first_part;
 
-	if (head == NULL || *head == NULL)
-		return (1);
-
-	new_head = init_new_list(head);
-
+	is_palin_check = 0;
 	tmp = *head;
-	tmp1 = new_head;
-	while (tmp != NULL && tmp1 != NULL)
-	{
-		if (tmp->n != tmp1->n)
-		{
-			free_listint(new_head);
-			return (0);
-		}
-		tmp = tmp->next;
-		tmp1 = tmp1->next;
-	}
-	free_listint(new_head);
+	first_part = *head;
+	nodes = count_node(&tmp);
+	mid_node = nodes / 2;
 
-	return (1);
+	i = 0;
+	while (i < mid_node - 1)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+
+	second_part = tmp->next;
+	tmp->next = NULL;
+
+	reverse_linked_list(&second_part);
+
+	is_palin_check = compare_linked_list(&first_part, &second_part);
+
+	reverse_linked_list(&second_part);
+
+	while (first_part->next != NULL)
+		first_part = first_part->next;
+
+	first_part->next = second_part;
+
+	return (is_palin_check);
 }
