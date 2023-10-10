@@ -3,7 +3,7 @@
 
 int count_node(listint_t **);
 void reverse_linked_list(listint_t **);
-
+int compare_linked_list(listint_t **, listint_t **);
 
 /**
  * compare_linked_list - compares a linked list
@@ -99,6 +99,8 @@ int is_palindrome(listint_t **head)
 	int nodes, mid_node, i, is_palin_check;
 	listint_t *tmp, *second_part, *first_part;
 
+	if (head == NULL || *head == NULL)
+		return (1);
 	is_palin_check = 0;
 	tmp = *head;
 	first_part = *head;
