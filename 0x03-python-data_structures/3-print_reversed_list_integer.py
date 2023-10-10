@@ -2,10 +2,11 @@
 
 
 def print_reversed_list_integer(my_list=[]):
+    if my_list == None:
+        return
     new_list = sorted(my_list, reverse=True)
     for i in range(len(new_list)):
         print("{:d}".format(new_list[i]))
-    return new_list
 
 
 if __name__ == "__main__":
