@@ -2,11 +2,11 @@
 
 
 def best_score(a_dictionary):
-    name = ""
-    value = -10000
-
     if a_dictionary is None:
         return None
+
+    name = None
+    value = float("-inf")
 
     for k, v in a_dictionary.items():
         if v > value:
