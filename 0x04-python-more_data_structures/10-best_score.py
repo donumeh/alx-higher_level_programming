@@ -3,7 +3,7 @@
 
 def best_score(a_dictionary):
     name = ""
-    value = 0
+    value = -10000
 
     if a_dictionary is None:
         return None
