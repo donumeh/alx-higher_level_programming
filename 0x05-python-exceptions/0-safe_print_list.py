@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 def safe_print_list(my_list=[], x=0):
-    i = 0;
+    i = 0
     while i < x:
         try:
             print("{}".format(my_list[i]), end="")
@@ -11,4 +11,3 @@ def safe_print_list(my_list=[], x=0):
             return i
     print()
     return i
-
