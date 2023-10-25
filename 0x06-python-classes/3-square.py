@@ -33,4 +33,13 @@ class Square:
         self.__size = size
 
     def area(self):
+        """
+        Computes the ares of a square
+
+        Args:
+            None
+
+        Return:
+            None
+        """
         return self.__size ** 2
