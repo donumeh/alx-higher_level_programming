@@ -40,7 +40,7 @@ class Square:
                     "position must be a tuple of 2 positive integers"
                     )
         for i in position:
-            if i < 0:
+            if i < 0 or not isinstance(position, tuple):
                 raise TypeError(
                         "position must be a tuple of 2 positive integrs"
                         )
@@ -142,7 +142,7 @@ class Square:
                     "position must be a tuple of 2 positive integers"
                     )
         for i in value:
-            if i < 0:
+            if i < 0 or not isinstance(value, tuple):
                 raise TypeError(
                         "position must be a tuple of 2 positive integrs"
                         )
