@@ -12,4 +12,7 @@ Example:
 
 
 class Square:
+    """
+    This class creates Square objects to compute sqaures
+    """
     pass
