@@ -85,5 +85,6 @@ class Rectangle:
         """
         calculates the perimeter of the rectangle
         """
-
+        if self._Rectangle__width == 0 or self._Rectangle__height == 0:
+            return 0
         return (2 * self._Rectangle__width) + (2 * self._Rectangle__height)
