@@ -51,9 +51,10 @@ class Rectangle:
         """
         Print string for dev
         """
-        add = self.__class__()
+        mod = self.__module__
+        class_name = self.__class__.__name__
 
-        return "{}".format(add)
+        return "<{}.{} object at {}>".format(mod, class_name, hex(id(self)))
 
     @property
     def width(self):
