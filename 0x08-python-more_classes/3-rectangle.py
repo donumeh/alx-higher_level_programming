@@ -44,7 +44,10 @@ class Rectangle:
             return string
 
         for h in range(0, height):
-            string += ("#"*width) + "\n"
+            if h + 1 != height:
+                string += ("#"*width) + "\n"
+            else:
+                string += ("#"*width)
         return string
 
     def __repr__(self):
