@@ -25,12 +25,14 @@ def add_integer(a, b=98):
         raise TypeError("a must be an integer")
     elif type(b) not in [int, float]:
         raise TypeError("b must be an integer")
-    
-    a = round(a)
-    b = round(b)
+
+    if type(a) is float:
+        a = round(a)
+    if type(b) is float:
+        b = round(b)
     return int(a) + int(b)
 
 
-# if __name__ == "__main__":
-#    import doctest
-#    doctest.testfile("tests/0-add_integer.txt")
+if __name__ == "__main__":
+    import doctest
+    doctest.testfile("tests/0-add_integer.txt")
