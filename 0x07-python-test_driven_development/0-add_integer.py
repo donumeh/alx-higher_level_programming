@@ -6,6 +6,7 @@ Definitions:
     add_intger
 """
 
+
 def add_integer(a, b=98):
     """
     This function adds two values together
@@ -21,4 +22,3 @@ def add_integer(a, b=98):
         b = round(b)
 
     return a + b
-
