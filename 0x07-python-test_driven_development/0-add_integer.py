@@ -26,11 +26,7 @@ def add_integer(a, b=98):
     elif type(b) not in [int, float]:
         raise TypeError("b must be an integer")
 
-    if type(a) is float:
-        a = round(a)
-    if type(b) is float:
-        b = round(b)
-    return int(a) + int(b)
+    return int(round(a)) + int(round(b))
 
 
 if __name__ == "__main__":
