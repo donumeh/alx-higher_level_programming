@@ -26,7 +26,7 @@ def matrix_divided(matrix, div):
     size_index = 0
 
     if type(matrix) is list:
-        if len(matrix) <= 1 and len(matrix) == 0:
+        if len(matrix) <= 1:
             raise TypeError(err_typ1)
         else:
             for i in matrix:
