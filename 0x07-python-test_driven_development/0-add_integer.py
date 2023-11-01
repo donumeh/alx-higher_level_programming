@@ -26,7 +26,12 @@ def add_integer(a, b=98):
     elif type(b) not in [int, float]:
         raise TypeError("b must be an integer")
 
-    return int(round(a)) + int(round(b))
+    result = int(round(a)) + int(round(b))
+
+    if result > sys.maxsize:
+        raise OverflowError("Overflow: Result exceeds maximum int")
+
+    return result
 
 
 if __name__ == "__main__":
