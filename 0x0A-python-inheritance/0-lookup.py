@@ -2,4 +2,5 @@
 
 
 def lookup(obj):
+    """Returns the properties of a class"""
     return dir(obj)
