@@ -42,12 +42,9 @@ class Student:
 
         Return: dictionary representation
         """
-        if not attrs or len(attrs) == 0:
+        if attrs is None:
             return self.__dict__
         new_dict = dict()
-
-        if isinstance(attrs, str):
-            new_dict[attrs] = self.__dict__[attrs]
 
         if isinstance(attrs, list):
             for a in attrs:
