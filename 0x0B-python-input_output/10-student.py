@@ -42,7 +42,7 @@ class Student:
 
         Return: dictionary representation
         """
-        if not attrs:
+        if not attrs or len(attrs) == 0:
             return self.__dict__
         new_dict = dict()
 
