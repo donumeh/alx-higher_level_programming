@@ -46,8 +46,11 @@ class Student:
             return self.__dict__
         new_dict = dict()
 
-        for a in attrs:
-            if a in self.__dict__:
-                new_dict[a] = self.__dict__[a]
+        if isinstance(attrs, str):
+            new_dict[attrs] = self.__dict__[attrs]
 
+        if isinstance(attrs, list):
+            for a in attrs:
+                if a in self.__dict__:
+                    new_dict[a] = self.__dict__[a]
         return new_dict
