@@ -16,5 +16,6 @@ def to_json_string(my_obj):
 
     Return: JSON string
     """
+    data = json.dumps(my_obj)
 
-    return json.dumps(my_obj)
+    return data
