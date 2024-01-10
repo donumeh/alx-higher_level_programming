@@ -1,65 +1,68 @@
-#define PY_SSIZE_T_CLEAN
 #include <Python.h>
 
 /**
- * print_python_bytes - Prints information about a Python bytes object
- * @p: Python object
+ * print_python_list - print a python list info
+ * @p: the python object
  *
  * Return: void
  */
-void print_python_bytes(PyObject *p)
+
+void print_python_list(PyObject *p)
 {
-	Py_ssize_t size, i;
-	char *string;
+	PyListObject *list = (PyListObject *)p;
+	Py_ssize_t allocated = list->allocated;
+	Py_ssize_t index;
+	Py_ssize_t size = list->ob_base.ob_size;
 
-	printf("[.] bytes object info\n");
+	printf("[*] Python list info\n");
+	printf("[*] Size of the Python List = %ld\n", size);
+	printf("[*] Allocated = %ld\n", allocated);
 
-	if (PyBytes_Check(p))
+	for (index = 0; index < size; index++)
 	{
-		size = PyBytes_GET_SIZE(p);
-		string = PyBytes_AS_STRING(p);
-
-		printf("  size: %ld\n", size);
-		printf("  trying string: %s\n", string);
-
-		printf("  first %ld bytes: ", (size > 10) ? 10 : size);
-
-		for (i = 0; i < size && i < 10; i++)
-		{
-			printf("%02x ", string[i] & 0xff);
-		}
-		printf("\n");
-	}
-	else
-	{
-		printf("  [ERROR] Invalid Bytes Object\n");
+		printf("Element [%ld]: %s\n", index,
+				list->ob_item[index]->ob_type->tp_name);
 	}
 }
 
 /**
- * print_python_list - Prints information about a Python list object
- * @p: Python object
+ * print_python_bytes - prints python bytes
+ * @p: the PyObject
  *
  * Return: void
  */
-void print_python_list(PyObject *p)
+
+void print_python_bytes(PyObject *p)
 {
-	Py_ssize_t size, i;
-	PyObject *item;
+	PyBytesObject *byte = (PyBytesObject *)p;
+	Py_ssize_t index;
+	Py_ssize_t maxPrint = 10;
+	Py_ssize_t size = byte->ob_base.ob_size;
 
-	printf("[*] Python list info\n");
-	size = PyList_Size(p);
-	printf("[*] Size of the Python List = %ld\n", size);
-	printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
-
-	for (i = 0; i < size; i++)
+	printf("[.] bytes object info\n");
+	if (size == 1)
 	{
-		item = PyList_GetItem(p, i);
-		printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
-
-		if (PyBytes_Check(item))
-		{
-			print_python_bytes(item);
-		}
+		printf("  [ERROR] Invalid Bytes Object\n");
+		return;
 	}
+	printf("  size: %ld\n", size);
+	printf("  trying string: ");
+	for (index = 0; index < size; index++)
+	{
+		printf("%c", byte->ob_sval[index]);
+	}
+
+	if (size < maxPrint)
+	{
+		maxPrint = size + 1;
+	}
+	printf("\n  first %ld bytes: ", maxPrint);
+	for (index = 0; index < maxPrint; index++)
+	{
+		if (index + 1 == maxPrint)
+			printf("%.2x\n", byte->ob_sval[index]);
+		else
+			printf("%.2x ", byte->ob_sval[index]);
+	}
+
 }
