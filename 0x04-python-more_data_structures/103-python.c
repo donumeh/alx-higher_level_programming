@@ -43,30 +43,34 @@ void print_python_bytes(PyObject *p)
 	if (size == 1)
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
-		return;
 	}
-	printf("  size: %ld\n", size);
-	printf("  trying string: ");
-	for (index = 0; index < size; index++)
+	else
 	{
-		printf("%c", byte->ob_sval[index]);
-	}
-
-	if (size < maxPrint)
-	{
-		maxPrint = size + 1;
-	}
-	printf("\n  first %ld bytes: ", maxPrint);
-	for (index = 0; index < maxPrint; index++)
-	{
-		char c = byte->ob_sval[index];
-
-		if (c < 0)
-			c = 256 + c;
-		if (index + 1 == maxPrint)
-			printf("%02x\n", c);
-		else
-			printf("%02x ", c);
+		printf("  size: %ld\n", size);
+		printf("  trying string: ");
+		for (index = 0; index < size; index++)
+		{
+			printf("%c", byte->ob_sval[index]);
+		}
+		
+		if (size < maxPrint)
+		{
+			maxPrint = size + 1;
+		}
+		
+		printf("\n  first %ld bytes: ", maxPrint);
+		
+		for (index = 0; index < maxPrint; index++)
+		{
+			char c = byte->ob_sval[index];
+			
+			if (c < 0)
+				c = 256 + c;
+			if (index + 1 == maxPrint)
+				printf("%02x\n", c);
+			else
+				printf("%02x ", c);
+		}
 	}
 
 }
