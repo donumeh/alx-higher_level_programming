@@ -1,4 +1,10 @@
 #include <Python.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <object.h>
+#include <listobject.h>
+#include <bytesobject.h>
+
 
 /**
  * print_python_list - print a python list info
@@ -59,10 +65,14 @@ void print_python_bytes(PyObject *p)
 	printf("\n  first %ld bytes: ", maxPrint);
 	for (index = 0; index < maxPrint; index++)
 	{
+		char c = byte->ob_sval[index];
+
+		if (c < 0)
+			c = 256 + c;
 		if (index + 1 == maxPrint)
-			printf("%.2x\n", byte->ob_sval[index]);
+			printf("%2x\n", c);
 		else
-			printf("%.2x ", byte->ob_sval[index]);
+			printf("%2x ", c);
 	}
 
 }
