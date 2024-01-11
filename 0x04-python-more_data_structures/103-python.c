@@ -62,14 +62,15 @@ void print_python_bytes(PyObject *p)
 		
 		for (index = 0; index < maxPrint; index++)
 		{
-			char c = byte->ob_sval[index];
-			
+			int c = byte->ob_sval[index];
+
 			if (c < 0)
-				c = 256 + c;
+				c = c & 0xFF;
+			
 			if (index + 1 == maxPrint)
-				printf("%02x\n", c);
+				printf("%x\n", c);
 			else
-				printf("%02x ", c);
+				printf("%x ", c);
 		}
 	}
 
