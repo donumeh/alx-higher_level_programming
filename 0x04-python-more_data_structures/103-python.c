@@ -20,7 +20,7 @@ void print_python_list(PyObject *p)
 
 	for (index = 0; index < size; index++)
 	{
-		printf("Element [%ld]: %s\n", index,
+		printf("Element %ld: %s\n", index,
 				list->ob_item[index]->ob_type->tp_name);
 	}
 }
