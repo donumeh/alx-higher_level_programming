@@ -1,5 +1,6 @@
 #include <Python.h>
 
+void print_python_bytes(PyObject *p);
 /**
  * print_python_list - print a python list info
  * @p: the python object
@@ -20,8 +21,13 @@ void print_python_list(PyObject *p)
 
 	for (index = 0; index < size; index++)
 	{
-		printf("Element %ld: %s\n", index,
-				list->ob_item[index]->ob_type->tp_name);
+		const char *type_name;
+
+		type_name = list->ob_item[index]->ob_type->tp_name;
+		printf("Element %ld: %s\n", index, type_name);
+
+		if (strcmp(type_name, "bytes") == 0)
+			print_python_bytes(list->ob_item[index]);
 	}
 }
 
@@ -52,21 +58,20 @@ void print_python_bytes(PyObject *p)
 		{
 			printf("%c", byte->ob_sval[index]);
 		}
-		
+
 		if (size < maxPrint)
 		{
 			maxPrint = size + 1;
 		}
-		
+
 		printf("\n  first %ld bytes: ", maxPrint);
-		
+
 		for (index = 0; index < maxPrint; index++)
 		{
 			int c = byte->ob_sval[index];
 
 			if (c < 0)
 				c = c & 0xFF;
-			
 			if (index + 1 == maxPrint)
 				printf("%.2x\n", c);
 			else
