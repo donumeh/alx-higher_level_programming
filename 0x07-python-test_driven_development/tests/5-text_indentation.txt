@@ -1,0 +1,49 @@
+This file test the function ``text_indentation`` in ``5-text_indentation``
+=============================================================
+
+Check if the file exists
+
+	>>> m = __import__('5-text_indentation').__doc__
+
+Check if the module contains a doc
+
+	>>> len(m) >= 1
+	True
+
+Check if there's a function called ``text_indentation``
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+Check if the function contains a doc file
+
+	>>> f = text_indentation.__doc__
+	>>> len(f) >= 1
+	True
+
+Check if arg passed into text is string
+
+	>>> text_indentation(3)
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+	>>> text_indentation({})
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+	>>> text_indentation([])
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+Check if function prints correct output
+
+	>>> text_indentation("This. Is. Good.")
+	This.
+	<BLANKLINE>
+	Is.
+	<BLANKLINE>
+	Good.
+	<BLANKLINE>
