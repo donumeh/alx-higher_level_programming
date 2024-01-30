@@ -1,0 +1,92 @@
+This file tests the function print_square that can be found in 4-print_square.py
+=============================================
+
+Check if the module has a doc
+
+	>>> m = __import__('4-print_square').__doc__
+	>>> len(m) >= 1
+	True
+
+Checks if the ``print_square`` exist
+
+	>>> print_square = __import__('4-print_square').print_square
+
+Checks if ``print_square`` contains a doc
+
+	>>> f = print_square.__doc__
+	>>> len(f) >= 1
+	True
+
+Checks if ``print_square``.size is an integer
+
+	>>> print_square("string")
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+	>>> print_square({})
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+	>>> print_square([])
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+
+Check if the ``print_square``.size is less than 0
+
+	>>> print_square(-1)
+	Traceback (most recent call last):
+		...
+	ValueError: size must be >= 0
+
+	>>> print_square(0)
+
+	>>> print_square(4 - 9)
+	Traceback (most recent call last):
+		...
+	ValueError: size must be >= 0
+
+
+Checks if the ``print_square``.size is a float and less than 0
+
+	>>> print_square(1.1)
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+	>>> print_square(0.1)
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+
+	>>> print_square(-4.9)
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+
+Checks if the ``print_square`` prints the correct square
+
+	>>> print_square(4) # doctest: +NORMALIZE_WHITESPACE
+	####
+	####
+	####
+	####
+
+	>>> print_square(2.4) # doctest: +NORMALIZE_WHITESPACE
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+	>>> print_square(5) # doctest: +NORMALIZE_WHITESPACE
+	#####
+	#####
+	#####
+	#####
+	#####
+
+
