@@ -46,3 +46,12 @@ Checks print out when an empty string is passed to first_name
 
 	>>> say_my_name("", "Dare") # doctest: +NORMALIZE_WHITESPACE
 	My name is Dare
+
+Checks if it raises a TypeError when a dict is used in first_name
+
+	>>> say_my_name({}, "Tunde") # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string
+
+
