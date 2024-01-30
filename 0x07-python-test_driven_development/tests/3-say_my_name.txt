@@ -1,0 +1,48 @@
+This file contains tests for function say_my_name in file name ``say_my_name.py``
+==============================================================
+
+Check for if a doc can be found in the Module
+	
+	>>> m = __import__('3-say_my_name').__doc__
+	>>> len(m) >= 1
+	True
+
+Import the function ``say_my_name``
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name	
+
+Check if the function has a doc in it
+
+	>>> f = say_my_name.__doc__
+	>>> len(f) >= 1
+	True
+
+Check if it prints the string
+	
+	>>> say_my_name("Tunde", "Ade")
+	My name is Tunde Ade
+
+Check if it prints when only one arg (first_name) is passed
+
+	>>> say_my_name("Tunde") # doctest: +NORMALIZE_WHITESPACE
+	My name is Tunde
+
+Check if it raises a TypeError when the first_name is not string
+
+	>>> say_my_name(3, "Tunde") # doctest: +NORMALIZE_WHITESPACE
+    	Traceback (most recent call last):
+      		...
+    	TypeError: first_name must be a string
+
+Check if it raises a TypeError when the last_name is not a string
+
+	>>> say_my_name("Tunde", 4) # doctest: +NORMALIZE_WHITESPACE, +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
+
+
+Checks print out when an empty string is passed to first_name
+
+	>>> say_my_name("", "Dare") # doctest: +NORMALIZE_WHITESPACE
+	My name is Dare
