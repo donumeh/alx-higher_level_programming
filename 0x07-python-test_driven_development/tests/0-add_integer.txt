@@ -91,5 +91,5 @@ First import ``add_integer`` from the ``0-add_integer`` module:
 
    Test for Float overflow:
 	
-	>>> add_integer("float("inf")", 9)
+	>>> add_integer(1e308, 1e308)
 	89
