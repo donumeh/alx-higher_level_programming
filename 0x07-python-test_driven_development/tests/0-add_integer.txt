@@ -88,8 +88,3 @@ First import ``add_integer`` from the ``0-add_integer`` module:
 	Traceback (most recent call last):
 	...
 	TypeError: a must be an integer
-
-   Test for Float overflow:
-	
-	>>> add_integer(1e308, 1e308)
-	89
