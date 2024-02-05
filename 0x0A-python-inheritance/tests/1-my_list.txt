@@ -1,0 +1,43 @@
+This file test the code in ``1-my_list.py``
+===================================================
+
+Check if the module exist
+
+	>>> m = __import__('1-my_list')
+
+
+Check if the module has a docstring
+
+	>>> m = m.__doc__
+	>>> len(m) >= 1
+	True
+
+
+Check if the class exists in the program and has a doc
+
+	>>> c = __import__('1-my_list').MyList.__doc__
+	>>> len(c) >= 1
+	True
+
+Checks if the class allows to append int to list
+
+	>>> MyList = __import__('1-my_list').MyList
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+	>>> my_list.append(4)
+	>>> my_list.append(2)
+	>>> my_list.append(3)
+	>>> my_list.append(5)
+
+
+Checks and prints the list
+
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+
+Prints sorted list declared in MyList
+
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
+
+
