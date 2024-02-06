@@ -18,7 +18,6 @@ def print_metrics(file_size, status_num):
         print("{}: {}".format(status_code, status_num[status_code]))
 
 
-
 def log_parser():
     """
     Function reads computes metrics and get status code from it
@@ -35,9 +34,7 @@ def log_parser():
     counter = 0
     status_num = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 
-
     try:
-        
         for line in sys.stdin:
             try:
                 parts = line.split()
@@ -45,7 +42,6 @@ def log_parser():
                 file_size += int(parts[-1])
                 status_num[status_code] += 1
                 counter += 1
-
 
                 if counter % 10 == 0:
                     print_metrics(file_size, status_num)
@@ -55,7 +51,6 @@ def log_parser():
     except KeyboardInterrupt as e:
         print_metrics(file_size, status_num)
         print(e)
-
 
 
 if __name__ == "__main__":
