@@ -4,6 +4,17 @@
 
 
 def append_after(filename="", search_string="", new_string=""):
+    """
+    Inserts a line of text in a file when it finds a specific string
+
+    Parameters:
+        filename (str): the name of file
+        search_string (str): the string to search for
+        new_string (str): the string to insert after finding string
+
+    Return:
+        None
+    """
     with open(filename, "r", encoding="utf-8") as file:
         file_content = file.readlines()
 
