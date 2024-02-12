@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
 from models.base import Base
+
 """
 Modules has a class that inherits from Base
 """
+
 
 class Rectangle(Base):
 
@@ -20,7 +22,6 @@ class Rectangle(Base):
         self.__height = height
         self.__x = x
         self.__y = y
-
 
     @property
     def width(self):
@@ -63,5 +64,3 @@ class Rectangle(Base):
     def y(self, y):
         """Set y"""
         self.__y = y
-
-

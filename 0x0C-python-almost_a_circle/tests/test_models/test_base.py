@@ -6,6 +6,7 @@ This Module contains the unittest to test the class ``Base()``
 found in models.base
 """
 
+
 class TestBase(unittest.TestCase):
 
     """
@@ -23,9 +24,7 @@ class TestBase(unittest.TestCase):
         obj2 = Base(10)
         self.assertEqual(obj2.id, 10)
 
-
     def test_constructor_without_id(self):
-
         """
         Function to test base without id passed
         """
@@ -37,7 +36,5 @@ class TestBase(unittest.TestCase):
         self.assertEqual(obj2.id, 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
-
-

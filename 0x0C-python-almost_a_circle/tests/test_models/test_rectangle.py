@@ -26,7 +26,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.x, 5)
         self.assertEqual(rect.y, 5)
 
-
     def test_setters_and_getter(self):
         """
         Method to test the setters and getter of constructor
@@ -38,12 +37,11 @@ class TestRectangle(unittest.TestCase):
         rect.x = 10
         rect.y = 10
 
-
         self.assertEqual(rect.width, 15)
         self.assertEqual(rect.height, 25)
         self.assertEqual(rect.x, 10)
         self.assertEqual(rect.y, 10)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
