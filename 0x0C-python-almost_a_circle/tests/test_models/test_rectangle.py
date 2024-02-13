@@ -71,6 +71,15 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             rect.y = -5
 
+    def test_area(self):
+        """ Tests for the area raised """
+
+        self.assertEqual(Rectangle(3, 2).area(), 6)
+
+        self.assertEqual(Rectangle(2, 10).area(), 20)
+
+        self.assertEqual(Rectangle(8, 7, 0, 0, 12).area(), 56)
+
 
 if __name__ == "__main__":
     unittest.main()
