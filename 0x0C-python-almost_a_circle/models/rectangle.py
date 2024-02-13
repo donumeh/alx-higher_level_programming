@@ -221,11 +221,11 @@ class Rectangle(Base):
             None
         """
 
-        if y < 0:
-            raise ValueError("y must be >= 0")
-
         if not isinstance(y, int):
             raise TypeError("y must be an integer")
+
+        if y < 0:
+            raise ValueError("y must be >= 0")
 
         self.__y = y
 
