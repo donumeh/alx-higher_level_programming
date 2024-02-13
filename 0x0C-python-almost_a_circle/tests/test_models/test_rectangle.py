@@ -42,10 +42,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.x, 10)
         self.assertEqual(rect.y, 10)
 
-
     def test_raises(self):
-
-        """ Tests for error raised """
+        """Tests for error raised"""
 
         rect = Rectangle(10, 20, 5, 5)
 
@@ -54,7 +52,6 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             rect.width = 0
-
 
         with self.assertRaises(TypeError):
             rect.height = "invalid"
