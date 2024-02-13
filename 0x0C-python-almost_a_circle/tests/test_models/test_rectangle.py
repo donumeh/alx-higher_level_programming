@@ -43,5 +43,37 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.y, 10)
 
 
+    def test_raises(self):
+
+        """ Tests for error raised """
+
+        rect = Rectangle(10, 20, 5, 5)
+
+        with self.assertRaises(TypeError):
+            rect.width = "invalid"
+
+        with self.assertRaises(ValueError):
+            rect.width = 0
+
+
+        with self.assertRaises(TypeError):
+            rect.height = "invalid"
+
+        with self.assertRaises(ValueError):
+            rect.height = -5
+
+        with self.assertRaises(TypeError):
+            rect.x = "invalid"
+
+        with self.assertRaises(ValueError):
+            rect.x = -5
+
+        with self.assertRaises(TypeError):
+            rect.y = "invalid"
+
+        with self.assertRaises(ValueError):
+            rect.y = -5
+
+
 if __name__ == "__main__":
     unittest.main()
