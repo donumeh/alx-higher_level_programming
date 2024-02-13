@@ -5,7 +5,13 @@ from models.base import Base
 """
 Modules has a class that inherits from Base
 
+The Rectangle class is a shape constructing object used
+in creating and replicating the shape behaviours
 
+It can:
+    calculate the area
+    print the shape out
+    and add some graph spacing to it
 """
 
 
