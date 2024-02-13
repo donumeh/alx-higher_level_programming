@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-from models.base import Base
-
 """
 Modules has a class that inherits from Base
 
@@ -13,7 +11,7 @@ It can:
     print the shape out
     and add some graph spacing to it
 """
-
+from models.base import Base
 
 class Rectangle(Base):
 
