@@ -137,6 +137,10 @@ class Rectangle(Base):
 
         """displays the rectangle"""
 
+        if self.__y:
+            print("\n" * self.__y, end="")
+
         for i in range(self.__height):
+            print(" " * self.__x, end="")
             print('#' * self.__width)
 
