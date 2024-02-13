@@ -13,6 +13,7 @@ It can:
 """
 from models.base import Base
 
+
 class Rectangle(Base):
 
     """
@@ -71,7 +72,6 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
-
     def __str__(self):
         """Modified string for user
 
@@ -84,9 +84,9 @@ class Rectangle(Base):
             None
         """
 
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,
-                self.__y, self.__width, self.__height)
-
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height
+        )
 
     @property
     def width(self):
@@ -101,7 +101,6 @@ class Rectangle(Base):
 
         """
         return self.__width
-
 
     @width.setter
     def width(self, width):
@@ -124,7 +123,6 @@ class Rectangle(Base):
 
         self.__width = width
 
-
     @property
     def height(self):
         """Gets the height
@@ -139,7 +137,6 @@ class Rectangle(Base):
         """
 
         return self.__height
-
 
     @height.setter
     def height(self, height):
@@ -161,7 +158,6 @@ class Rectangle(Base):
 
         self.__height = height
 
-
     @property
     def x(self):
         """Gets x
@@ -176,7 +172,6 @@ class Rectangle(Base):
         """
 
         return self.__x
-
 
     @x.setter
     def x(self, x):
@@ -197,7 +192,6 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
 
         self.__x = x
-
 
     @property
     def y(self):
@@ -248,7 +242,6 @@ class Rectangle(Base):
         return self.__height * self.__width
 
     def display(self):
-
         """displays the rectangle
 
         Display - displays the rectangle by printing it unto the screen using '#'
@@ -266,5 +259,4 @@ class Rectangle(Base):
 
         for i in range(self.__height):
             print(" " * self.__x, end="")
-            print('#' * self.__width)
-
+            print("#" * self.__width)

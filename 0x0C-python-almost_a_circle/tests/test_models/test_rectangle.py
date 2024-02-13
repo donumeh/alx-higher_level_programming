@@ -74,7 +74,7 @@ class TestRectangle(unittest.TestCase):
             rect.y = -5
 
     def test_area(self):
-        """ Tests for the area raised """
+        """Tests for the area raised"""
 
         self.assertEqual(Rectangle(3, 2).area(), 6)
 
@@ -82,18 +82,15 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(Rectangle(8, 7, 0, 0, 12).area(), 56)
 
-
-    @patch('sys.stdout', new_callable=io.StringIO)
+    @patch("sys.stdout", new_callable=io.StringIO)
     def test_display(self, mock_stdout):
-
-        """ Test the output display """
+        """Test the output display"""
         rect = Rectangle(4, 6)
         rect.display()
         self.assertEqual(mock_stdout.getvalue(), "####\n####\n####\n####\n####\n####\n")
 
-
     def test_str(self):
-        """ test `__str__` """
+        """test `__str__`"""
 
         rect = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(rect), "[Rectangle] (12) 2/1 - 4/6")
@@ -101,11 +98,9 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(5, 5, 1, 0, 1)
         self.assertEqual(str(rect), "[Rectangle] (1) 1/0 - 5/5")
 
-    
-    @patch('sys.stdout', new_callable=io.StringIO)
+    @patch("sys.stdout", new_callable=io.StringIO)
     def test_display_xandy(self, mock_stdout):
-
-        """ Test display and position """
+        """Test display and position"""
 
         rect = Rectangle(2, 3, 2, 2)
         rect.display()
