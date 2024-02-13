@@ -6,6 +6,8 @@ This Module contains the file that tests the rectangle class
 
 import unittest
 from models.rectangle import Rectangle
+import io
+from unittest.mock import patch
 
 
 class TestRectangle(unittest.TestCase):
@@ -79,6 +81,13 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(Rectangle(2, 10).area(), 20)
 
         self.assertEqual(Rectangle(8, 7, 0, 0, 12).area(), 56)
+
+
+    @patch('sys.stdout', new_callable=io.StringIO)
+    def test_display(self, mock_stdout):
+        rect = Rectangle(4, 6)
+        rect.display()
+        self.assertEqual(mock_stdout.getvalue(), "####\n####\n####\n####\n####\n####\n")
 
 
 if __name__ == "__main__":
