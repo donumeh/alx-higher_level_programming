@@ -20,7 +20,12 @@ class Rectangle(Base):
     """
     This Class creates a rectangle object using the base class
 
-
+    Methods/Behaviours:
+        __init__ : constructor
+        __str__ : string formater
+        width, height, x, y : setters and getters
+        area: displays the area of the rectangle
+        display: displays the rectangle by printing it to screen
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
