@@ -32,6 +32,15 @@ class Rectangle(Base):
         """
         Function initiates the class module Rectangle
 
+        Parameters:
+            width (int): the width of the rectangle
+            height (int): the height of the rectangle
+            x (int): the x graph position of the rectangle
+            y (int): the y position of the rectangle
+            id (int or NoneType): the id of the rectangle, passed to base class
+
+        Return:
+            None
 
         """
 
@@ -66,23 +75,48 @@ class Rectangle(Base):
 
 
     def __str__(self):
-        """Modified string for user"""
+        """Modified string for user
+
+        Reformats the print out of the rectangle object
+
+        Parameters:
+            None
+
+        Return:
+            None
+        """
 
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,
                 self.__y, self.__width, self.__height)
 
+
     @property
     def width(self):
         """
-        Gets the width
+        Getter of the width attribute
 
+        Parameters:
+            None
+
+        Return:
+            self.__width (int)
 
         """
         return self.__width
 
+
     @width.setter
     def width(self, width):
-        """Sets the width"""
+        """Sets the width
+
+        Setter of the width attribute
+
+        Parameters:
+            width (int): the new width of the rectangle object
+
+        Return:
+            None
+        """
 
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
@@ -92,14 +126,35 @@ class Rectangle(Base):
 
         self.__width = width
 
+
     @property
     def height(self):
-        """Gets the height"""
+        """Gets the height
+
+        Getter of the height attribute
+
+        Parameters:
+            None
+
+        Return:
+            None
+        """
+
         return self.__height
+
 
     @height.setter
     def height(self, height):
-        """Sets the height"""
+        """Sets the height
+
+        Setter of the height attribute in the rectangle obj
+
+        Parameter:
+            height (int): the new height of the obj
+
+        Return:
+            None
+        """
 
         if not isinstance(height, int):
             raise TypeError("height must be an integer")
@@ -108,14 +163,35 @@ class Rectangle(Base):
 
         self.__height = height
 
+
     @property
     def x(self):
-        """Gets x"""
+        """Gets x
+
+        Getter of the x attribute in the rect obj positioning
+
+        Parameter:
+            None
+
+        Return:
+            self.__x (int): the x value of the rect obj
+        """
+
         return self.__x
+
 
     @x.setter
     def x(self, x):
-        """Sets x"""
+        """Sets x
+
+        Setter of the x attribute in the rrect obj positioning
+
+        Parameter:
+            x (int): the new value of the x attribute
+
+        Return:
+            None
+        """
 
         if not isinstance(x, int):
             raise TypeError("x must be an integer")
@@ -124,14 +200,34 @@ class Rectangle(Base):
 
         self.__x = x
 
+
     @property
     def y(self):
-        """Get y"""
+        """Get y
+
+        Getter of the y attribute in the rectangle obj positioning
+
+
+        Parameter:
+            None
+
+        Return:
+            self.__y (int): the value of y attribute in rect
+        """
         return self.__y
 
     @y.setter
     def y(self, y):
-        """Set y"""
+        """Set y
+
+        Setter of the y attribute in the rectangle obj positioning
+
+        Parameter:
+            y (int): the new value of the attribute
+
+        Return:
+            None
+        """
 
         if y < 0:
             raise ValueError("y must be >= 0")
@@ -141,12 +237,31 @@ class Rectangle(Base):
         self.__y = y
 
     def area(self):
-        """returns the area of the rectangle"""
+        """returns the area of the rectangle
+
+        Area - finds the area of the rectangle object
+
+        Parameter:
+            None
+
+        Return:
+            height * width (attrs)
+        """
         return self.__height * self.__width
 
     def display(self):
 
-        """displays the rectangle"""
+        """displays the rectangle
+
+        Display - displays the rectangle by printing it unto the screen using '#'
+
+        Parameter:
+            None
+
+        Return:
+            None
+
+        """
 
         if self.__y:
             print("\n" * self.__y, end="")
