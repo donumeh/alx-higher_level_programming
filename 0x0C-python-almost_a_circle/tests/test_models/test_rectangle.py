@@ -85,9 +85,22 @@ class TestRectangle(unittest.TestCase):
 
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_display(self, mock_stdout):
+
+        """ Test the output display """
         rect = Rectangle(4, 6)
         rect.display()
         self.assertEqual(mock_stdout.getvalue(), "####\n####\n####\n####\n####\n####\n")
+
+
+    def test_str(self):
+        """ test `__str__` """
+
+        rect = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual(str(rect), "[Rectangle] (12) 2/1 - 4/6")
+
+        rect = Rectangle(5, 5, 1, 0, 1)
+        self.assertEqual(str(rect), "[Rectangle] (1) 1/0 - 5/5")
+
 
 
 if __name__ == "__main__":
