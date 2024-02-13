@@ -244,7 +244,7 @@ class Rectangle(Base):
     def display(self):
         """displays the rectangle
 
-        Display - displays the rectangle by printing it unto the screen using '#'
+        Display - displays the rectangle by printing '#'
 
         Parameter:
             None
