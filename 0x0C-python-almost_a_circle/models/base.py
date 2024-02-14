@@ -124,22 +124,20 @@ class Base:
 
         list_instances = []
 
-        if cls.__name__.lower() == "rectangle":
-            instance = cls(1, 1)
-        elif cls.__name__.lower() == "square":
-            instance = cls(1)
-
         filename = cls.__name__ + ".json"
 
-        with open(filename, "r", encoding="utf-8") as file:
-            file_content = file.read()
+        try:
+            with open(filename, "r", encoding="utf-8") as file:
+                file_content = file.read()
 
-        if len(file_content) != 0:
-            list_dict = Base.from_json_string(file_content)
+            if file_content:
+                list_dict = Base.from_json_string(file_content)
 
-            for i in list_dict:
-                new_instance = instance.create(**i)
+                for i in list_dict:
+                    instance = cls.create(**i)
+                    list_instances.append(instance)
 
-                list_instances.append(new_instance)
+        except FileNotFoundError:
+            pass
 
         return list_instances
