@@ -32,6 +32,7 @@ class Square(Rectangle):
         """
 
         super().__init__(size, size, x, y, id)
+        self.__size = size
 
     def __str__(self):
         """
@@ -44,4 +45,33 @@ class Square(Rectangle):
             _ (str): A formatted string
         """
 
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.__size}"
+
+    @property
+    def size(self):
+        """
+        Getter for the square attribute size
+
+        Parameter:
+            None
+
+        Return:
+            None
+        """
+
+        return self.__size
+
+    @size.setter
+    def size(self, size):
+        """
+        Setter for the square attribute size
+
+        Parameter:
+            size (int): size of the square
+
+        Return:
+            None
+        """
+
+        self.width = size
+        self.height = size

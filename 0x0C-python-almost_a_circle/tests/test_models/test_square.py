@@ -67,6 +67,12 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             square.y = -5
 
+        with self.assertRaises(TypeError):
+            square.size = "invalid"
+
+        with self.assertRaises(ValueError):
+            square.size = 0
+
     def test_str(self):
         square = Square(5, 1, 2, 10)
         self.assertEqual(str(square), "[Square] (10) 1/2 - 5")
