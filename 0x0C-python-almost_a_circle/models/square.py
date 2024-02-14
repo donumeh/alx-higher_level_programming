@@ -59,7 +59,7 @@ class Square(Rectangle):
             None
         """
 
-        return self.width
+        return self.__size
 
     @size.setter
     def size(self, size):
@@ -73,9 +73,6 @@ class Square(Rectangle):
             None
         """
 
-
         self.width = size
         self.height = size
         self.__size = size
-
-
