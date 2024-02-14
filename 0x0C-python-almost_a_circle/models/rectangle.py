@@ -268,6 +268,7 @@ class Rectangle(Base):
 
         Parameter:
             *arg (ints): a varible number of integer args
+            **kwargs (int): keyword argument
 
         Return:
             None

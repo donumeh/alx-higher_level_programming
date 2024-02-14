@@ -56,7 +56,7 @@ class Square(Rectangle):
             None
 
         Return:
-            None
+            self.__size (int)
         """
 
         return self.__size
@@ -76,3 +76,25 @@ class Square(Rectangle):
         self.width = size
         self.height = size
         self.__size = size
+
+    def update(self, *args, **kwargs):
+        """
+        Update - updates the attributes in the square obj
+
+        Parameter:
+            *arg (ints): a variable number of integer args
+            **kwargs (ints): dictionary like argument
+
+        Return:
+            None
+        """
+
+        if args:
+            attrs = ["id", "size", "x", "y"]
+
+            for i, arg in enumerate(args):
+                setattr(self, attrs[i], arg)
+
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
