@@ -109,3 +109,37 @@ class Base:
         instance.update(**dictionary)
 
         return instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Function will load json from file
+
+        Parameter:
+            None
+
+        Return:
+            obj instance
+        """
+
+        list_instances = []
+
+        if cls.__name__.lower() == "rectangle":
+            instance = cls(1, 1)
+        elif cls.__name__.lower() == "square":
+            instance = cls(1)
+
+        filename = cls.__name__ + ".json"
+
+        with open(filename, "r", encoding="utf-8") as file:
+            file_content = file.read()
+
+        if len(file_content) != 0:
+            list_dict = Base.from_json_string(file_content)
+
+            for i in list_dict:
+                new_instance = instance.create(**i)
+
+                list_instances.append(new_instance)
+
+        return list_instances
