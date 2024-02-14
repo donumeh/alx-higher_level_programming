@@ -75,3 +75,4 @@ class Square(Rectangle):
 
         self.width = size
         self.height = size
+        self.__size = size
