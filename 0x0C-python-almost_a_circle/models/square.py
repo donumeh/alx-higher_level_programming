@@ -110,6 +110,6 @@ class Square(Rectangle):
             attr (dict)
         """
 
-        attr_dict = {"id": self.id, "x": self.x, "size": self.size, "y": self.y}
+        attr = {"id": self.id, "x": self.x, "size": self.size, "y": self.y}
 
-        return attr_dict
+        return attr
