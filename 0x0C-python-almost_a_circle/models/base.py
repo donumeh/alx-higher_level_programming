@@ -71,3 +71,20 @@ class Base:
 
             with open(filename, "w", encoding="utf-8") as file:
                 file.write(cls.to_json_string(list_dict))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Function that returns the list of the JSON string representation
+
+        Parameter:
+            json_string (string): a json string format
+
+        Return:
+            python obj (list) of dict
+        """
+
+        if json_string is None:
+            return []
+
+        return loads(json_string)
