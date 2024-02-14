@@ -87,4 +87,4 @@ class Base:
         if json_string is None:
             return []
 
-        return loads(json_string)
+        return json.loads(json_string)
