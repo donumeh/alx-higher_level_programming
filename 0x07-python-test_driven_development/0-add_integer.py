@@ -26,6 +26,9 @@ def add_integer(a, b=98):
     elif type(b) not in [int, float]:
         raise TypeError("b must be an integer")
 
+    if a == float('inf') or b == float('inf'):
+        raise OverflowError("value or input cannot be an overflow")
+
     if type(a) is float:
         a = round(a)
     if type(b) is float:

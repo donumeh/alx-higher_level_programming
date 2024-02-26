@@ -58,8 +58,10 @@ First import ``add_integer`` from the ``0-add_integer`` module:
 
    Float overflow:
 
-	>>> add_integer(1500.5)
-	1598
+	>>> add_integer(float('inf'), float('inf')) # doctest: +NORMALIZE_WHITESPACE, +ELLIPSIS
+	Traceback (most recent call last):
+		...
+	OverflowError: value or input cannot be an overflow
 
     Float NaN:
 
