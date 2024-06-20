@@ -1,30 +1,15 @@
 #!/usr/bin/node
 
 /**
- * searches biggest integer in the list of args
+ * prints the second largest number
  */
 
-const arrLength = process.argv.length;
-let arr = [];
+let args = process.argv.slice(2).map(Number);
 
-if (arrLength === 2 || arrLength === 3) {
-  console.log(0);
+if (args.length === 0 || args.length === 1) {
+	console.log(0);
 } else {
-  const newIntArr = [];
-  arr = process.argv.slice(2);
-
-  for (const i of arr) {
-    newIntArr.push(parseInt(i));
-  }
-
-  let newHighest = 0; let formerHighest = 0;
-  newHighest = newIntArr[0];
-
-  for (const i in newIntArr) {
-    if (i > newHighest) {
-      formerHighest = newHighest;
-      newHighest = i;
-    }
-  }
-  console.log(formerHighest);
+	let max = Math.max(...args);
+	let secondBiggest = Math.max(...args.filter(x => x < max));
+	console.log(secondBiggest);
 }
