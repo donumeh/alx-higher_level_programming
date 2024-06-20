@@ -10,17 +10,21 @@ let arr = [];
 if (arrLength === 2 || arrLength === 3) {
   console.log(0);
 } else {
+  const newIntArr = [];
   arr = process.argv.slice(2);
 
-  let newHighest = 0; let formerHighest = 0;
-  newHighest = arr[0];
+  for (const i of arr) {
+    newIntArr.push(parseInt(i));
+  }
 
-  for (const i in arr) {
+  let newHighest = 0; let formerHighest = 0;
+  newHighest = newIntArr[0];
+
+  for (const i in newIntArr) {
     if (i > newHighest) {
       formerHighest = newHighest;
       newHighest = i;
     }
   }
-
   console.log(formerHighest);
 }
