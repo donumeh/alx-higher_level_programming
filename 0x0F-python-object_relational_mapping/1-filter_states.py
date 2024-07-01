@@ -21,10 +21,11 @@ def main():
     )
 
     session = interface.cursor()
-
     session.execute(
-        "SELECT * FROM states WHERE name LIKE 'N%' \
-                    ORDER BY states.id"
+        "SELECT * FROM states \
+                WHERE name REGEXP '^[N]' \
+                AND ASCII(SUBSTRING(name, 1, 1)) = 78 \
+                ORDER BY states.id"
     )
     result = session.fetchall()
 
