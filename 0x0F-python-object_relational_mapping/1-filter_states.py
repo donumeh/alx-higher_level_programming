@@ -23,7 +23,7 @@ def main():
     session = interface.cursor()
 
     session.execute(
-        "SELECT * FROM states WHERE name lIKE 'N%' \
+        "SELECT * FROM states WHERE name LIKE 'N%' \
                     ORDER BY states.id"
     )
     result = session.fetchall()
