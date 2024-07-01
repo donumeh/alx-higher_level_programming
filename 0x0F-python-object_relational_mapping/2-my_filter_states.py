@@ -28,7 +28,7 @@ def main():
 
     session.execute(
         "SELECT * FROM states \
-                WHERE states.name = '{}' \
+                WHERE BINARY states.name = '{}' \
                 ORDER BY states.id".format(
             state_name
         )
