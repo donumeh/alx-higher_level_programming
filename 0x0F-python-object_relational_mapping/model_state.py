@@ -7,6 +7,7 @@ Python script that contains the class definition of a State
 import sqlalchemy
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
+
 # from sqlalchemy.orm import declarative_base
 # from sqlalchemy.schema import PrimaryKeyConstraint
 
@@ -20,11 +21,5 @@ class State(Base):
 
     __tablename__ = "states"
 
-    id = Column(Integer,
-            autoincrement=True,
-            primary_key=True,
-            unique=True
-            )
+    id = Column(Integer, autoincrement=True, primary_key=True, unique=True)
     name = Column(String(128), nullable=False)
-
-
