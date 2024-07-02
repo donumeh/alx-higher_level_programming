@@ -10,8 +10,8 @@ from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
-def main():
 
+def main():
     """
     Connects to a database to update a record
     """
@@ -31,7 +31,6 @@ def main():
     state = session.query(State).filter(State.id == 2).first()
 
     if state:
-
         state.name = "New Mexico"
 
         session.commit()
