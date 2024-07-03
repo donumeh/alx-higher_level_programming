@@ -30,10 +30,8 @@ def main():
 
     states = session.query(State).filter(State.name.like("%a%")).all()
 
-    if states:
-        for state in states:
-            session.delete(state)
-
+    for state in states:
+        session.delete(state)
         session.commit()
 
 
