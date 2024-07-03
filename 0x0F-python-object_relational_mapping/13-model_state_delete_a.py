@@ -28,7 +28,8 @@ def main():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).filter(State.name.like("%a%")).delete(synchronize_session=False))
+    query = session.query(State).filter(State.name.like("%a%"))
+    query.delete(synchronize_session=False))
     
     session.commit()
     session.close()
