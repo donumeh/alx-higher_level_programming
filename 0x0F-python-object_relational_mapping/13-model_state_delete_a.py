@@ -29,10 +29,10 @@ def main():
     session = Session()
 
     query = session.query(State).filter(State.name.like("%a%"))
-    query.delete(synchronize_session=False))
-    
+    query.delete(synchronize_session=False)
     session.commit()
     session.close()
+
 
 if __name__ == "__main__":
     main()
