@@ -37,15 +37,11 @@ def main():
         .all()
     )
 
-    counter = 1
-    s_counter = 1
     for state in result:
-        print(f"{counter}: {state.name}")
+        print(f"{state.id}: {state.name}")
 
         for c in state.cities:
-            print(f"\t{s_counter}: {c.name}")
-            s_counter += 1
-        counter += 1
+            print(f"\t{c.is}: {c.name}")
 
 
 if __name__ == "__main__":
