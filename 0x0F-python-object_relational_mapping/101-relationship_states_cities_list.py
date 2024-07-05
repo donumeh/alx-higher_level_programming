@@ -30,12 +30,7 @@ def main():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = (
-        session.query(State)
-        .join(City, State.id == City.state_id)
-        .order_by(State.id, City.id)
-        .all()
-    )
+    result = session.query(State).join(City).order_by(State.id, City.id).all()
 
     for state in result:
         print(f"{state.id}: {state.name}")
