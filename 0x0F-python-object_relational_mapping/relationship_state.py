@@ -7,8 +7,9 @@ Python script that contains the class definition of a State
 import sqlalchemy
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationsip
+from sqlalchemy.orm import relationship
 
+# from sqlalchemy.orm import declarative_base
 # from sqlalchemy.schema import PrimaryKeyConstraint
 
 Base = declarative_base()
