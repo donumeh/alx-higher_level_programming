@@ -41,7 +41,7 @@ def main():
         print(f"{state.id}: {state.name}")
 
         for c in state.cities:
-            print(f"\t{c.is}: {c.name}")
+            print(f"\t{c.id}: {c.name}")
 
 
 if __name__ == "__main__":
