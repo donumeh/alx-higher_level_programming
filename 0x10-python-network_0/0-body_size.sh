@@ -1,4 +1,5 @@
 #!/bin/bash
+# Request a url and gets size
 
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <URL>"
