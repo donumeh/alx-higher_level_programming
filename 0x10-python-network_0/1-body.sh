@@ -1,3 +1,14 @@
-#!/bin/bash
-# takes a url and get request
-curl -sL -w "%{http_code}" "$1" -o /tmp/body_file ; [[ $(tail -n1 /tmp/body_file) == "200" ]] && cat /tmp/body_file || true
+#!/usr/bin/env bash
+# Sends a GET request to the URL and displays the body of the response
+if [[ $# -eq 1 ]]
+then
+	status_code=$(curl -sI "$1" | head -n 1 | tr ' ' '\n' | tail -n 2 | head -n 1)
+	
+	if [[ $status_code -eq "200" ]]
+	then
+		curl -sg "$1"
+		exit
+	else
+		exit 1
+	fi
+fi
