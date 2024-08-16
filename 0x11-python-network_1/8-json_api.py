@@ -29,7 +29,7 @@ def main():
             print("No result")
         else:
             print("[{}] {}".format(json_dict["id"], json_dict["name"]))
-    except:
+    except ValueError:
         print("Not a valid JSON")
 
 
